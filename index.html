@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FeatherLand Bird ID</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#e8f5e9;
+padding-top:100px;
+}
+
+.box{
+background:white;
+width:400px;
+margin:auto;
+padding:40px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.1);
+}
+
+input{
+padding:10px;
+font-size:18px;
+width:200px;
+}
+
+button{
+padding:10px 20px;
+font-size:18px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+font-size:18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🦜 FeatherLand Bird ID</h1>
+
+<p>발목링 번호를 입력하세요</p>
+
+<input id="ring" placeholder="FL001">
+
+<br><br>
+
+<button onclick="search()">조회</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const birds = {
+"FL001":{
+species:"카이큐",
+owner:"김철수",
+phone:"010-1111-2222"
+},
+"FL002":{
+species:"쟈딘",
+owner:"박영희",
+phone:"010-3333-4444"
+},
+"FL003":{
+species:"아마존",
+owner:"이민수",
+phone:"010-5555-6666"
+}
+}
+
+function search(){
+
+let ring = document.getElementById("ring").value.toUpperCase()
+
+if(birds[ring]){
+
+let b = birds[ring]
+
+document.getElementById("result").innerHTML =
+"종: "+b.species+"<br>"+
+"보호자: "+b.owner+"<br>"+
+"전화번호: "+b.phone
+
+}else{
+
+document.getElementById("result").innerHTML =
+"등록되지 않은 번호입니다."
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
